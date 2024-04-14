@@ -1,0 +1,17 @@
+<app-input-to-filter
+  [data]="links"
+  (setFilteredData)="setFilteredData($event)"
+/>
+
+<table [contentEditable]="true">
+  <tr>
+    <th>Title</th>
+    <th>Link</th>
+  </tr>
+  @for(link of linksFiltered; track link.id){
+  <tr>
+    <td>{{ link.title }}</td>
+    <td>{{ link.url }}</td>
+  </tr>
+  }
+</table>
