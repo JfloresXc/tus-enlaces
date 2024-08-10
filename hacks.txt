@@ -1,0 +1,4 @@
+1. Instalar Xamp
+2. Instalar Composer
+3. Cambiar versión con composer self-update 2.6.5 en ruta /backend
+4. Borrar ;extension=gd el ";" y guardar de archivo php.ini

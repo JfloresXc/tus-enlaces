@@ -1,0 +1,8 @@
+-- Generate component
+ng g c modules/shared/components/dropdown-user --style=none
+
+-- Generate service
+ng g s modules/user/shared/user.service
+
+-- Generate interceptors
+ng g interceptor modules/shared/interceptors/auth

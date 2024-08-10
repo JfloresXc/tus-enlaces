@@ -1,0 +1,35 @@
+<div class="bg-dark-purple h-screen p-5 pt-8 duration-300 relative bg-blue-600 {{open ? 'w-72' : 'w-20'}}">
+    <span
+        class="material-symbols-outlined bg-white text-xl text-blue-600  rounded-full absolute -right-3 top-9  cursor-pointer border border-blue-600 size-7 flex justify-center items-center  {{!open && 'rotate-180'}}"
+        (click)="toggleOpen()">
+        arrow_back
+    </span>
+
+    <div class="inline-flex">
+        <ul>
+            @for(item of itemsOfMenu; track item.title){
+            <li
+                class="text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light rounded-md mt-2">
+                <span class="material-symbols-outlined text-2xl block float-left" (click)="toggleOpen()">
+                    {{item.icon}}
+                </span>
+                <span class="block float-left {{!open ? 'hidden' : ''}} ">{{item.title}}</span>
+                @if(item.submenu && item.submenu.length > 0 && open){
+                <span class="material-symbols-outlined text-2xl block float-right" (click)="toggleOpenSubMenu()">
+                    arrow_drop_down
+                </span>
+                }
+            </li>
+            @if(open && openSubMenu && item.submenu && item.submenu.length > 0){
+            <ul>
+                <!-- @for(itemSubMenu of item.submenu; track: itemSubMenu.link){
+                <li
+                    class="text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 px-5 hover:bg-light rounded-md">
+                    {{itemSubMenu ? itemSubMenu.title : ''}}
+                    } -->
+            </ul>
+            }
+            }
+        </ul>
+    </div>
+</div>

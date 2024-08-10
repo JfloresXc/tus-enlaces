@@ -1,0 +1,8 @@
+<ul class="dvs-validation-errors">
+  <li
+    class="mt-2 text-sm text-red-600 dark:text-red-500"
+    *ngFor="let error of errors | keyvalue"
+  >
+    {{ errorMessages[error.key] }}
+  </li>
+</ul>

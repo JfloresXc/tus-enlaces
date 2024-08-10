@@ -1,27 +1,32 @@
-<div class="mb-6">
-  <label
-    for="password"
-    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-    >{{ label }}</label
-  >
-  <input
-    type="{{ type }}"
-    placeholder="{{ placeholder }}"
-    [formControl]="formControlExported"
-    id="password"
-    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-  />
+<div>
+  <div>
+    <label class="mb-3 block text-sm font-medium text-gray-700">{{
+      label
+    }}</label>
+    <input
+      [required]="isRequired"
+      [type]="type"
+      [id]="inputId"
+      [formControl]="control"
+      class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm"
+    />
 
-  @if (formControlExported.getError('required')) {
-  <small></small>
+    @if (control.touched) {
+    <app-validation-errors
+      [customErrorMessages]="customErrorMessages"
+      [errors]="control.errors"
+    ></app-validation-errors>
+    }
+  </div>
+
+  <!-- @if (isRequired) {
   <p class="mt-2 text-sm text-red-600 dark:text-red-500">
     <span class="font-medium">Oh, stop!</span> Es requerido.
   </p>
-
-  } @else if (formControlExported.getError('minlength')) {
+  } @else if (control.getError('minlength')) {
   <p class="mt-2 text-sm text-red-600 dark:text-red-500">
     Tiene cantidad minima de
-    {{ formControlExported.errors?.['minlength']?.requiredLength }}
+    {{ control.errors?.['minlength']?.requiredLength }}
   </p>
-  }
+  } -->
 </div>
